@@ -10,12 +10,10 @@ import { errorHandler, notFoundHandler } from "./middlewares/error.mjs";
 import routes from "./routes.mjs";
 
 dotenv.config();
+const PORT = process.env.PORT || 3000;
 const app = express();
-const PORT = process.env.PORT || 6010;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-console.log(__dirname);
 
 // Middlewares
 app.use(bodyParser.json());
