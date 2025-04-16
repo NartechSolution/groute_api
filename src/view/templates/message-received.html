@@ -1,0 +1,81 @@
+<%- include('../layouts/header', { title: 'Message Received' }) %>
+
+<!-- Email Content -->
+<h1 style="color: #14213d; margin: 0 0 20px 0; font-size: 24px">
+  Thank You for Contacting Us!
+</h1>
+
+<p
+  style="color: #555555; font-size: 16px; line-height: 1.5; margin: 0 0 15px 0"
+>
+  Dear <%= name %>,
+</p>
+
+<p
+  style="color: #555555; font-size: 16px; line-height: 1.5; margin: 0 0 15px 0"
+>
+  We have received your message regarding "<%= subject %>". Our team will review
+  your inquiry and get back to you as soon as possible.
+</p>
+
+<div
+  style="
+    background-color: #f8f9fa;
+    border-left: 4px solid #14213d;
+    padding: 15px;
+    margin: 20px 0;
+  "
+>
+  <p style="color: #666666; font-size: 14px; margin: 0 0 10px 0">
+    <strong>Your Message:</strong>
+  </p>
+  <p style="color: #666666; font-size: 14px; margin: 0; font-style: italic">
+    "<%= message %>"
+  </p>
+</div>
+
+<p
+  style="
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 20px 0 15px 0;
+  "
+>
+  Here's what to expect:
+</p>
+
+<ul
+  style="
+    color: #555555;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+    padding-left: 20px;
+  "
+>
+  <li>We typically respond within 24-48 business hours</li>
+  <li>For urgent matters, you can reach us at +971 527621325</li>
+  <li>
+    Our support team is available Sunday through Thursday, 9 AM - 6 PM GST
+  </li>
+</ul>
+
+<div style="margin: 30px 0; text-align: center">
+  <a
+    href="https://nartec-solutions.com/contact"
+    style="
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #14213d;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    "
+  >
+    Visit Our Contact Page
+  </a>
+</div>
+
+<%- include('../layouts/footer') %>

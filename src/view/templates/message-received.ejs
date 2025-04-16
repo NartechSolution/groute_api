@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message Received - Nartec Solutions</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: #f8fafc;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    "
+  >
+    <%- include('../layouts/header.ejs') %>
+
+    <!-- Content -->
+    <table
+      role="presentation"
+      style="
+        width: 100%;
+        max-width: 600px;
+        margin: 24px auto;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      "
+    >
+      <tr>
+        <td style="padding: 40px">
+          <!-- Success Icon -->
+          <div style="text-align: center; margin-bottom: 32px">
+            <img
+              src="https://nartec-solutions.com/icons/checkmark-circle.png"
+              alt="Success"
+              style="width: 64px; height: 64px"
+            />
+          </div>
+
+          <h1
+            style="
+              color: #14213d;
+              margin: 0 0 24px 0;
+              font-size: 28px;
+              font-weight: 700;
+              text-align: center;
+              letter-spacing: -0.5px;
+            "
+          >
+            Thank You for Contacting Us!
+          </h1>
+
+          <p
+            style="
+              color: #334155;
+              font-size: 16px;
+              line-height: 1.6;
+              margin: 0 0 20px 0;
+            "
+          >
+            Dear <span style="font-weight: 600"><%= name %></span>,
+          </p>
+
+          <p
+            style="
+              color: #334155;
+              font-size: 16px;
+              line-height: 1.6;
+              margin: 0 0 24px 0;
+            "
+          >
+            We have received your message regarding "<span
+              style="font-weight: 500"
+              ><%= subject %></span
+            >". Our team will review your inquiry and get back to you as soon as
+            possible.
+          </p>
+
+          <!-- Message Quote Box -->
+          <div
+            style="
+              background-color: #f8fafc;
+              border-left: 4px solid #fca311;
+              padding: 20px;
+              margin: 24px 0;
+              border-radius: 0 8px 8px 0;
+            "
+          >
+            <p
+              style="
+                color: #475569;
+                font-size: 15px;
+                margin: 0 0 12px 0;
+                font-weight: 600;
+              "
+            >
+              Your Message:
+            </p>
+            <p
+              style="
+                color: #64748b;
+                font-size: 15px;
+                margin: 0;
+                font-style: italic;
+                line-height: 1.6;
+              "
+            >
+              "<%= message %>"
+            </p>
+          </div>
+
+          <!-- What to Expect Section -->
+          <div
+            style="
+              background: linear-gradient(135deg, #14213d 0%, #1e3a8a 100%);
+              border-radius: 12px;
+              padding: 24px;
+              margin: 32px 0;
+              color: white;
+            "
+          >
+            <h2
+              style="
+                margin: 0 0 16px 0;
+                font-size: 18px;
+                font-weight: 600;
+                color: #ffffff;
+              "
+            >
+              What to Expect
+            </h2>
+
+            <ul
+              style="
+                margin: 0;
+                padding-left: 24px;
+                color: #e2e8f0;
+                font-size: 15px;
+                line-height: 1.7;
+              "
+            >
+              <li style="margin-bottom: 8px">
+                We typically respond within 24-48 business hours
+              </li>
+              <li style="margin-bottom: 8px">
+                For urgent matters, you can reach us at
+                <span style="color: #fca311"><%= contactInfo.phone %></span>
+              </li>
+              <li>
+                Our support team is available <%= contactInfo.businessHours %>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CTA Button -->
+          <div style="margin: 32px 0; text-align: center">
+            <a
+              href="https://nartec-solutions.com/contact"
+              style="
+                display: inline-block;
+                padding: 14px 32px;
+                background-color: #fca311;
+                color: #14213d;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 15px;
+                transition: background-color 0.3s;
+                box-shadow: 0 2px 4px rgba(252, 163, 17, 0.2);
+              "
+            >
+              Visit Our Website
+            </a>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <%- include('../layouts/footer.ejs') %>
+  </body>
+</html>
