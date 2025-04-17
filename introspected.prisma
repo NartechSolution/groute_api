@@ -1,0 +1,405 @@
+// model assignedOrder {
+//   id                    String              @id
+//   member_id             String
+//   pickingRouteId        String?
+//   inventLocationId      String?
+//   transRefId            String?
+//   wmsLocationId         String?
+//   images                String?             @db.NVarChar(Max)
+//   status                String              @default("pending")
+//   signature             String?
+//   assignedTime          DateTime?           @default(now())
+//   startJourneyTime      DateTime?
+//   arrivalTime           DateTime?
+//   unloadingTime         DateTime?
+//   invoiceCreationTime   DateTime?
+//   endJourneyTime        DateTime?
+//   createdAt             DateTime            @default(now())
+//   updatedAt             DateTime
+//   driverId              String
+//   tblGoodsIssueMasterId String
+//   SubUser               SubUser             @relation(fields: [driverId], references: [id], onDelete: Cascade)
+//   Member                Member              @relation(fields: [member_id], references: [id], onDelete: Cascade)
+//   tblGoodsIssueMaster   tblGoodsIssueMaster @relation(fields: [tblGoodsIssueMasterId], references: [id], onDelete: Cascade)
+// }
+
+// model BinLocation {
+//   id             String   @id
+//   groupWarehouse String?
+//   zones          String?
+//   binNumber      String?
+//   zoneType       String?
+//   binHeight      Decimal? @db.Decimal(10, 2)
+//   binRow         Int?
+//   binWidth       Decimal? @db.Decimal(10, 2)
+//   binTotalSize   Decimal? @db.Decimal(10, 2)
+//   binType        String?
+//   order_id       String
+//   createdAt      DateTime @default(now())
+//   updatedAt      DateTime
+// }
+
+// model cards {
+//   id             String    @id
+//   caption        String?   @db.NVarChar(Max)
+//   caption_ar     String?   @db.NVarChar(Max)
+//   title          String?   @db.NVarChar(Max)
+//   title_ar       String?   @db.NVarChar(Max)
+//   description    String?   @db.NVarChar(Max)
+//   description_ar String?   @db.NVarChar(Max)
+//   image          String?   @db.NVarChar(Max)
+//   button         String?   @db.NVarChar(Max)
+//   button2        String?   @db.NVarChar(Max)
+//   url            String?   @db.NVarChar(Max)
+//   url2           String?   @db.NVarChar(Max)
+//   status         Int?
+//   created_at     DateTime? @default(now()) @db.DateTime
+//   updated_at     DateTime  @default(now()) @db.DateTime
+// }
+
+// model Content {
+//   id         String   @id
+//   section_id String
+//   type       String   @db.NVarChar(Max)
+//   data       String   @db.NVarChar(Max)
+//   data_ar    String?  @db.NVarChar(Max)
+//   created_at DateTime @default(now()) @db.DateTime
+//   updated_at DateTime @default(now()) @db.DateTime
+//   Section    Section  @relation(fields: [section_id], references: [id], onDelete: Cascade)
+// }
+
+// model CustomerProfile {
+//   id              String   @id
+//   member_id       String
+//   customer_name   String?
+//   contact_person  String?
+//   photo           String?
+//   mobile_number   String?
+//   email           String?
+//   address         String?
+//   area            String?
+//   city            String?
+//   latitude        String?
+//   longitude       String?
+//   company_name    String?
+//   gsrn_number     String?
+//   gln_location_no String?
+//   payment_type    String?  @default("cash")
+//   wallet_id_no    String?
+//   dateTimeCreated DateTime @default(now())
+//   user_id         String?
+//   customer_id     String?  @unique
+//   gcpGLNID        String   @unique
+//   Member          Member   @relation(fields: [member_id], references: [id], onDelete: Cascade)
+// }
+
+// model first_container {
+//   id             String    @id
+//   caption        String?   @db.NVarChar(Max)
+//   caption_ar     String?   @db.NVarChar(Max)
+//   title          String?   @db.NVarChar(Max)
+//   title_ar       String?   @db.NVarChar(Max)
+//   description    String?   @db.NVarChar(Max)
+//   description_ar String?   @db.NVarChar(Max)
+//   image          String?   @db.NVarChar(Max)
+//   button         String?   @db.NVarChar(Max)
+//   button2        String?   @db.NVarChar(Max)
+//   url            String?   @db.NVarChar(Max)
+//   url2           String?   @db.NVarChar(Max)
+//   status         Int?
+//   created_at     DateTime? @default(now()) @db.DateTime
+//   updated_at     DateTime  @default(now()) @db.DateTime
+// }
+
+// model footer_menus {
+//   id                   String               @id
+//   parent_id            String
+//   category_name_en     String?              @db.NVarChar(Max)
+//   category_name_ar     String?              @db.NVarChar(Max)
+//   url                  String?              @db.NVarChar(Max)
+//   status               Int?
+//   created_at           DateTime?            @default(now()) @db.DateTime
+//   updated_at           DateTime             @default(now()) @db.DateTime
+//   mega_menu_categories mega_menu_categories @relation(fields: [parent_id], references: [id])
+// }
+
+// model MappedBarcodes {
+//   id             String    @id
+//   itemCode       String?
+//   gln            String?
+//   itemDesc       String?
+//   gtin           String?
+//   remarks        String?
+//   user           String?
+//   classification String?
+//   mainLocation   String?
+//   binLocation    String?
+//   intCode        String?
+//   itemSerialNo   String?
+//   mapDate        DateTime? @db.Date
+//   palletCode     String?
+//   reference      String?
+//   sid            String?
+//   cid            String?
+//   po             String?
+//   trans          Int?
+//   length         Decimal?  @db.Decimal(10, 2)
+//   width          Decimal?  @db.Decimal(10, 2)
+//   height         Decimal?  @db.Decimal(10, 2)
+//   weight         Decimal?  @db.Decimal(10, 2)
+//   qrCode         String?
+//   trxDate        DateTime? @db.Date
+//   order_id       String
+//   gln_number_van String?
+// }
+
+// model mega_menu_categories {
+//   id               String         @id
+//   parent_id        String
+//   megamenu_id      String?
+//   category_name_en String?        @db.NVarChar(Max)
+//   category_name_ar String?        @db.NVarChar(Max)
+//   description      String?        @db.NVarChar(Max)
+//   url              String?        @db.NVarChar(Max)
+//   meta_title       String?        @db.NVarChar(Max)
+//   meta_description String?        @db.NVarChar(Max)
+//   meta_keywords    String?        @db.NVarChar(Max)
+//   status           Int?
+//   created_at       DateTime?      @default(now()) @db.DateTime
+//   updated_at       DateTime       @default(now()) @db.DateTime
+//   caption          String?        @db.NVarChar(Max)
+//   caption_ar       String?        @db.NVarChar(Max)
+//   image            String?        @db.NVarChar(Max)
+//   footer_menus     footer_menus[]
+//   mega_menus       mega_menus?    @relation(fields: [megamenu_id], references: [id])
+// }
+
+// model mega_menus {
+//   id                   String                 @id
+//   name_en              String?                @db.NVarChar(Max)
+//   name_ar              String?                @db.NVarChar(Max)
+//   status               Int
+//   created_at           DateTime?              @default(now()) @db.DateTime
+//   updated_at           DateTime               @default(now()) @db.DateTime
+//   mega_menu_categories mega_menu_categories[]
+// }
+
+// model Member {
+//   id                  String                @id
+//   name                String
+//   companyName         String
+//   mobile              String                @unique
+//   email               String                @unique
+//   password            String
+//   createdAt           DateTime              @default(now())
+//   updatedAt           DateTime
+//   assignedOrder       assignedOrder[]
+//   CustomerProfile     CustomerProfile[]
+//   RouteArea           RouteArea[]
+//   SubUser             SubUser[]
+//   tblGoodsIssueMaster tblGoodsIssueMaster[]
+// }
+
+// model NewPage {
+//   id                 String    @id
+//   name               String?   @db.NVarChar(Max)
+//   name_ar            String?   @db.NVarChar(Max)
+//   slug               String?   @unique
+//   seo_description    String?   @db.NVarChar(Max)
+//   seo_description_ar String?   @db.NVarChar(Max)
+//   status             Int?
+//   template_id        String
+//   created_at         DateTime? @default(now()) @db.DateTime
+//   updated_at         DateTime? @default(now()) @db.DateTime
+//   Template           Template  @relation(fields: [template_id], references: [id], onDelete: Cascade)
+//   Section            Section[]
+// }
+
+// model RouteArea {
+//   id             String    @id
+//   area_name      String    @unique
+//   member_id      String
+//   region_polygon String
+//   createdAt      DateTime  @default(now())
+//   updatedAt      DateTime
+//   city           String?
+//   gln_id         String?
+//   street         String?
+//   Member         Member    @relation(fields: [member_id], references: [id], onUpdate: NoAction)
+//   SubUser        SubUser[]
+// }
+
+// model second_container {
+//   id             String    @id
+//   caption        String?   @db.NVarChar(Max)
+//   caption_ar     String?   @db.NVarChar(Max)
+//   title          String?   @db.NVarChar(Max)
+//   title_ar       String?   @db.NVarChar(Max)
+//   description    String?   @db.NVarChar(Max)
+//   description_ar String?   @db.NVarChar(Max)
+//   image          String?   @db.NVarChar(Max)
+//   button         String?   @db.NVarChar(Max)
+//   button2        String?   @db.NVarChar(Max)
+//   url            String?   @db.NVarChar(Max)
+//   url2           String?   @db.NVarChar(Max)
+//   status         Int?
+//   created_at     DateTime? @default(now()) @db.DateTime
+//   updated_at     DateTime  @default(now()) @db.DateTime
+// }
+
+// model Section {
+//   id         String    @id
+//   page_id    String
+//   name       String    @db.NVarChar(Max)
+//   name_ar    String    @db.NVarChar(Max)
+//   order      Int
+//   created_at DateTime  @default(now()) @db.DateTime
+//   updated_at DateTime  @default(now()) @db.DateTime
+//   Content    Content[]
+//   NewPage    NewPage   @relation(fields: [page_id], references: [id], onDelete: Cascade)
+// }
+
+// model steps {
+//   id             String    @id
+//   caption        String?   @db.NVarChar(Max)
+//   caption_ar     String?   @db.NVarChar(Max)
+//   title          String?   @db.NVarChar(Max)
+//   title_ar       String?   @db.NVarChar(Max)
+//   description    String?   @db.NVarChar(Max)
+//   description_ar String?   @db.NVarChar(Max)
+//   image          String?   @db.NVarChar(Max)
+//   button         String?   @db.NVarChar(Max)
+//   url            String?   @db.NVarChar(Max)
+//   status         Int?
+//   created_at     DateTime? @default(now()) @db.DateTime
+//   updated_at     DateTime  @default(now()) @db.DateTime
+// }
+
+// model SubUser {
+//   id                    String          @id
+//   memberId              String
+//   email                 String          @unique
+//   password              String
+//   name                  String?
+//   gsrnIdNumber          String?
+//   mobileNumber          String?
+//   residenceIdNumber     String?
+//   nationalAddressQRCode String?
+//   role                  String          @default("driver")
+//   createdAt             DateTime        @default(now())
+//   updatedAt             DateTime
+//   routeAreaId           String
+//   assignedOrder         assignedOrder[]
+//   Member                Member          @relation(fields: [memberId], references: [id], onUpdate: NoAction)
+//   RouteArea             RouteArea       @relation(fields: [routeAreaId], references: [id])
+//   VehicleMaster         VehicleMaster[]
+// }
+
+// model tblGoodsIssueDetails {
+//   id                    String               @id
+//   ShippingTrxCode       String               @db.VarChar(50)
+//   GTIN                  String               @db.VarChar(14)
+//   ItemSKU               String               @db.VarChar(50)
+//   BatchNo               String               @db.VarChar(50)
+//   SerialNo              String               @db.VarChar(50)
+//   ManufacturingDate     DateTime
+//   ExpiryDate            DateTime
+//   PackagingDate         DateTime
+//   SellBy                DateTime
+//   ReceivingUOM          String               @db.VarChar(50)
+//   BoxBarcode            String               @db.VarChar(50)
+//   SSCCBarcode           String               @db.VarChar(50)
+//   Qty                   Decimal              @db.Decimal(18, 2)
+//   createdAt             DateTime             @default(now())
+//   updatedAt             DateTime
+//   EUDAMED_Code          String               @db.VarChar(50)
+//   UDI_Code              String               @db.VarChar(50)
+//   GPC_Code              String               @db.VarChar(50)
+//   tblGoodsIssueMasterId String?
+//   tblGoodsIssueMaster   tblGoodsIssueMaster? @relation(fields: [tblGoodsIssueMasterId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+// }
+
+// model tblGoodsIssueMaster {
+//   id                   String                 @id
+//   ShippingTrxCode      String                 @db.VarChar(50)
+//   ShipToLocation       String?                @db.VarChar(50)
+//   GrowerSupplierGLN    String                 @db.VarChar(50)
+//   ShipFromGLN          String                 @db.VarChar(50)
+//   ShipDate             DateTime
+//   ActivityType         String                 @db.VarChar(50)
+//   BisStep              String                 @db.VarChar(50)
+//   Disposition          String                 @db.VarChar(50)
+//   BisTransactionType   String                 @db.VarChar(50)
+//   BisTransactionID     String                 @db.VarChar(50)
+//   PurchaseOrderNo      String                 @db.VarChar(50)
+//   SalesOrderNo         String                 @db.VarChar(50)
+//   SalesInvoiceNo       String                 @db.VarChar(50)
+//   TransactionDateTime  DateTime
+//   gcpGLNID             String                 @db.VarChar(50)
+//   GCPNo                String                 @db.VarChar(50)
+//   createdAt            DateTime               @default(now())
+//   updatedAt            DateTime
+//   member_id            String
+//   assignedOrder        assignedOrder[]
+//   tblGoodsIssueDetails tblGoodsIssueDetails[]
+//   Member               Member                 @relation(fields: [member_id], references: [id], onUpdate: NoAction)
+// }
+
+// model Template {
+//   id             String    @id
+//   name           String    @db.NVarChar(Max)
+//   name_ar        String    @db.NVarChar(Max)
+//   description    String?   @db.NVarChar(Max)
+//   description_ar String?   @db.NVarChar(Max)
+//   created_at     DateTime  @default(now()) @db.DateTime
+//   updated_at     DateTime  @default(now()) @db.DateTime
+//   NewPage        NewPage[]
+// }
+
+// model VehicleCheckMaster {
+//   id                         String               @id
+//   userId                     String
+//   model                      String?
+//   maker                      String?
+//   type                       String?
+//   plateNo                    String?
+//   fuelType                   String?
+//   color                      String?
+//   maximumLoad                Int?
+//   engineNo                   String?
+//   chassisNo                  String?
+//   currentMileage             Int?
+//   currentPetrol              Int?
+//   currentKm                  Int?
+//   vehicleInsuranceExpiryDate String?
+//   dateTimeCreated            DateTime             @default(now())
+//   photoId                    String?
+//   VehicleCheckPhotos         VehicleCheckPhotos[]
+// }
+
+// model VehicleCheckPhotos {
+//   id                 String             @id
+//   userId             String
+//   picture            String
+//   dateTimeCreated    DateTime           @default(now())
+//   vehicleCheckId     String
+//   VehicleCheckMaster VehicleCheckMaster @relation(fields: [vehicleCheckId], references: [id])
+// }
+
+// model VehicleMaster {
+//   id               String   @id
+//   plate_number     String?  @unique
+//   make             String?
+//   model            String?
+//   year             Int?
+//   color            String?
+//   owner            String?
+//   vin_number       String?  @unique
+//   gln_id_number    String?
+//   giai_number      String?
+//   member_id        String
+//   createdAt        DateTime @default(now())
+//   updatedAt        DateTime
+//   assignedDriverId String?
+//   SubUser          SubUser? @relation(fields: [assignedDriverId], references: [id])
+// }

@@ -1,0 +1,27 @@
+model Member {
+  id                 String   @id @default(cuid())
+  email              String?   @unique
+  password           String?
+  stackholderType    String?   // e.g. "supplier"
+  gs1CompanyPrefix   String?
+  companyNameEnglish String?
+  companyNameArabic  String?
+  contactPerson      String?
+  companyLandline    String?
+  mobileNo           String?
+  extension          String?
+  zipCode            String?
+  website            String?
+  gln                String?
+  address            String?
+  longitude          String?
+  latitude           String?
+  status             String?  @default("active") // e.g. "active"
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  gs1Userid          String?
+
+  // You can add relationships here if needed
+  // For example:
+  // products Product[]
+}

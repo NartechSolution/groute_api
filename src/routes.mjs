@@ -1,9 +1,8 @@
 import express from "express";
-
-import userRoutes from "./routes/userRoutes.mjs";
+import memberRoutes from "./routes/memberRoutes.mjs";
 
 const router = express.Router();
 
-router.use("/v1/user", userRoutes);
+router.use("/members", memberRoutes);
 
 export default router;

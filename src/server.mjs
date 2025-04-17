@@ -23,7 +23,7 @@ app.use(cors);
 app.use("/public", express.static("public"));
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
-app.use("/api", routes);
+app.use("/api/v1", routes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
