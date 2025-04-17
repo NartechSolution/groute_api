@@ -1,0 +1,31 @@
+model Product {
+    id                String    @id @default(cuid())
+    name              String?
+    unit              String?
+    size              String?
+    origin            String?
+    countrySale       String?
+    productType       String?
+    packagingType     String?
+    gpc               String?
+    price             Float?
+    description       String?
+    image             String?
+    status            String?   @default("active")
+    gtin              String?
+    sku               String?
+    brandName         String?
+    batch             String?
+    uniqueProductCode String?
+    expiryDate        DateTime?
+    packagingDate     DateTime?
+    quantity          Int?
+    gln               String?
+    binLocation       String?
+    createdAt         DateTime  @default(now())
+    updatedAt         DateTime  @updatedAt
+
+    // Relations
+    categoryId String?
+    category   Category? @relation(fields: [categoryId], references: [id])
+}
