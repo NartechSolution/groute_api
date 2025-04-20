@@ -24,4 +24,7 @@ model Member {
   // You can add relationships here if needed
   // For example:
   // products Product[]
+  categories        Category[]
+  
 }
+

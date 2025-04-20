@@ -10,7 +10,13 @@ export const memberLoginSchema = Joi.object({
   }),
 });
 
-// You can add more member-related schemas here
+export const refreshTokenSchema = Joi.object({
+  refreshToken: Joi.string().required().messages({
+    "any.required": "Refresh token is required",
+  }),
+});
+
+// You can add more schemas here as needed
 export const createMemberSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required(),

@@ -7,4 +7,7 @@ model Category {
 
     // Relations
     products Product[]
+
+    memberId   String?
+    member     Member? @relation(fields: [memberId], references: [id], onDelete: Cascade) // Delete categories if member is deleted
 }

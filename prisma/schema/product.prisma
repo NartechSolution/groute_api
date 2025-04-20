@@ -27,5 +27,6 @@ model Product {
 
     // Relations
     categoryId String?
-    category   Category? @relation(fields: [categoryId], references: [id])
+    category   Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade) // Delete products if category is deleted
+
 }
