@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { uploadSingle } from "multermate-es";
 import { ensureDirMiddleware } from "../utils/file.mjs";
-import CategoryController from "../controller/categoryController.js";
+import CategoryController from "../controller/categoryController.mjs";
 
 const PATH = "uploads/categories";
 const router = Router();

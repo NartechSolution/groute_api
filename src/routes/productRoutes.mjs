@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { uploadSingle } from "multermate-es";
 import { ensureDirMiddleware } from "../utils/file.mjs";
-import ProductController from "../controller/productController.js";
+import ProductController from "../controller/productController.mjs";
 
 const PATH = "uploads/products";
 const router = Router();
