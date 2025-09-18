@@ -35,12 +35,14 @@ Before you begin, ensure you have met the following requirements:
 ## 🛠️ Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/Wasim-Zaman/groute_api.git
    cd groute_api
    ```
 
 2. **Install dependencies**
+
    ```bash
    # Using pnpm (recommended)
    pnpm install
@@ -50,8 +52,9 @@ Before you begin, ensure you have met the following requirements:
    ```
 
 3. **Environment Setup**
-   
+
    Create a `.env` file in the root directory:
+
    ```env
    # Server Configuration
    PORT=3000
@@ -79,6 +82,7 @@ Before you begin, ensure you have met the following requirements:
    ```
 
 4. **Database Setup**
+
    ```bash
    # Generate Prisma client
    npx prisma generate
@@ -93,6 +97,7 @@ Before you begin, ensure you have met the following requirements:
 ## 🚀 Usage
 
 ### Development Mode
+
 ```bash
 # Start the development server with hot reload
 npm run dev
@@ -101,6 +106,7 @@ pnpm dev
 ```
 
 ### Production Mode
+
 ```bash
 # Start the production server
 npm start
@@ -113,6 +119,7 @@ The API will be available at `http://localhost:3000`
 ## 📚 API Documentation
 
 ### Base URL
+
 ```
 http://localhost:3000/api/v1
 ```
@@ -120,6 +127,7 @@ http://localhost:3000/api/v1
 ### Authentication Endpoints
 
 #### Login Member
+
 ```http
 POST /api/v1/members/login
 Content-Type: application/json
@@ -131,6 +139,7 @@ Content-Type: application/json
 ```
 
 #### Refresh Token
+
 ```http
 POST /api/v1/members/refresh-token
 Content-Type: application/json
@@ -143,16 +152,19 @@ Content-Type: application/json
 ### Category Endpoints
 
 #### Get All Categories
+
 ```http
 GET /api/v1/categories
 ```
 
 #### Get Category by ID
+
 ```http
 GET /api/v1/categories/:id
 ```
 
 #### Create Category
+
 ```http
 POST /api/v1/categories
 Content-Type: multipart/form-data
@@ -165,12 +177,14 @@ Content-Type: multipart/form-data
 ```
 
 #### Update Category
+
 ```http
 PUT /api/v1/categories/:id
 Content-Type: multipart/form-data
 ```
 
 #### Delete Category
+
 ```http
 DELETE /api/v1/categories/:id
 ```
@@ -178,16 +192,19 @@ DELETE /api/v1/categories/:id
 ### Product Endpoints
 
 #### Get All Products
+
 ```http
 GET /api/v1/products
 ```
 
 #### Get Product by ID
+
 ```http
 GET /api/v1/products/:id
 ```
 
 #### Create Product
+
 ```http
 POST /api/v1/products
 Content-Type: multipart/form-data
@@ -202,12 +219,14 @@ Content-Type: multipart/form-data
 ```
 
 #### Update Product
+
 ```http
 PUT /api/v1/products/:id
 Content-Type: multipart/form-data
 ```
 
 #### Delete Product
+
 ```http
 DELETE /api/v1/products/:id
 ```
@@ -298,6 +317,7 @@ npm run test:coverage
 ## 📦 Dependencies
 
 ### Production Dependencies
+
 - **express**: Fast, unopinionated web framework
 - **@prisma/client**: Type-safe database client
 - **bcryptjs**: Password hashing library
@@ -312,6 +332,7 @@ npm run test:coverage
 - **dotenv**: Environment variable loader
 
 ### Development Dependencies
+
 - **prisma**: Database toolkit and ORM
 - **nodemon**: Development server with hot reload
 
@@ -372,7 +393,7 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- **Wasim Zaman** - *Initial work* - [Wasim-Zaman](https://github.com/Wasim-Zaman)
+- **Wasim Zaman** - _Initial work_ - [Wasim-Zaman](https://github.com/Wasim-Zaman)
 
 ## 🙏 Acknowledgments
 
